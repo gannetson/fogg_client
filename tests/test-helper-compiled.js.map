@@ -1,1 +1,0 @@
-{"version":3,"sources":["test-helper.js"],"names":[],"mappings":";;;;+BAAqB,oBAAoB;;;;0BAGlC,aAAa;;AAEpB,gBAHE,WAAW,+BAGQ,CAAC","file":"test-helper-compiled.js","sourcesContent":["import resolver from './helpers/resolver';\nimport {\n  setResolver\n} from 'ember-qunit';\n\nsetResolver(resolver);\n"]}
