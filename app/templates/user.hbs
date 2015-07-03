@@ -1,0 +1,23 @@
+{{google-map allCountries=allCountries countries=model.countries countriesNeeded=countriesNeeded}}
+
+<div id="legend">
+    <h3>{{model.countries.length}} countries visited</h3>
+    <ul>
+      {{#each allCountries as |country|}}
+          <li>
+            {{#if (in-array country model.countries)}}
+                <a {{action 'removeCountry' country href=true}}>
+                    <span class="icon-globe"></span>
+                    {{country.name}}
+                </a>
+            {{else}}
+                <a {{action 'addCountry' country href=true}}>
+                    <span class="icon-question"></span>
+                    {{country.name}}
+                </a>
+            {{/if}}
+          </li>
+      {{/each}}
+    </ul>
+</div>
+

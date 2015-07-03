@@ -1,0 +1,11 @@
+Countries
+
+<ul>
+  {{#each model as |country|}}
+      <li>
+        {{#link-to 'country' country}}
+          {{country.name}}
+        {{/link-to}}
+      </li>
+  {{/each}}
+</ul>
