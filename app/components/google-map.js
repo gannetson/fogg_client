@@ -15,7 +15,7 @@ export default Ember.Component.extend({
     markCountry: function(country) {
         var _this = this,
             map= this.get('map'),
-            file = 'http://localhost:8000/geojson/' + country.id,
+            file = '/geojson/' + country.id,
             unmarked = true;
         map.data.forEach(function(mark){
            if (mark.getProperty('iso_a2') == country.get('code2')) {

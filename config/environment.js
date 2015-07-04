@@ -22,8 +22,9 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      API_HOST: 'http://localhost:4200',
+      API_NAMESPACE: 'api',
+      API_ADD_TRAILING_SLASHES: true
     }
   };
 
