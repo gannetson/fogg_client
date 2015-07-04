@@ -7,13 +7,13 @@
           <li>
             {{#if (in-array country model.countries)}}
                 <a {{action 'removeCountry' country href=true}}>
-                    <span class="icon-globe"></span>
-                    {{country.name}}
+                    <span class="spaced icon-globe"></span>
+                    <span class="name">{{country.name}}</span>
                 </a>
             {{else}}
                 <a {{action 'addCountry' country href=true}}>
-                    <span class="icon-question"></span>
-                    {{country.name}}
+                    <span class="spaced icon icon-question"></span>
+                    <span class="name">{{country.name}}</span>
                 </a>
             {{/if}}
           </li>

@@ -2,12 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
+    color: '#006600',
     map: null,
-    featureStyle: {
-        fillColor: 'green',
-        strokeWeight: 2,
-        strokeColor: 'darkgreen'
-    },
+    featureStyle: function () {
+        return {
+            fillColor: this.get('color'),
+            strokeWeight: 2,
+            strokeColor: this.get('color')
+        }
+    }.property(),
+
     markCountry: function(country) {
         var _this = this,
             map= this.get('map'),
@@ -21,7 +25,6 @@ export default Ember.Component.extend({
         if (unmarked) {
             map.data.loadGeoJson(file);
         }
-
     },
 
     unmarkCountry: function(country) {
@@ -57,10 +60,12 @@ export default Ember.Component.extend({
         };
         var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
         var infoWindow = new google.maps.InfoWindow({});
+
         map.data.addListener('mouseover', function (event) {
             map.data.revertStyle();
             map.data.overrideStyle(event.feature, {fillOpacity: 0.7});
         });
+
         map.data.addListener('click', function (event) {
             //show an infoWindow on click
             infoWindow.setContent('<div style="line-height:1.35;overflow:hidden;white-space:nowrap;"> '+
@@ -69,10 +74,22 @@ export default Ember.Component.extend({
             anchor.set("position",event.latLng);
             infoWindow.open(map,anchor);
         });
+
         map.data.addListener('mouseout', function (event) {
             map.data.revertStyle();
         });
+
         map.data.setStyle(this.get('featureStyle'));
+
+        map.addListener('click', function (event) {
+            //show an infoWindow on click
+            infoWindow.setContent('<div style="line-height:1.35;overflow:hidden;white-space:nowrap;"> '+
+                                        event.feature.getProperty('name') +"<br/></div>");
+            var anchor = new google.maps.MVCObject();
+            anchor.set("position",event.latLng);
+            infoWindow.open(map,anchor);
+        });
+
         this.set('map', map);
     }
 });
