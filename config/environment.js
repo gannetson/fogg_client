@@ -22,7 +22,7 @@ module.exports = function(environment) {
     },
 
     APP: {
-      API_HOST: 'http://localhost:4200',
+      API_HOST: '/',
       API_NAMESPACE: 'api',
       API_ADD_TRAILING_SLASHES: true
     }
