@@ -15,6 +15,6 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
-/*/**-compiled.js
-/*/**-compiled.js.map
+/**/*-compiled.js
+/**/*-compiled.js.map
 /.idea
