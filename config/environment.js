@@ -4,9 +4,9 @@ module.exports = function(environment) {
   var ENV = {
     contentSecurityPolicy: {
       'default-src': "*",
-      'connect-src': "'self' http://localhost:8000",
+      'connect-src': "'self' http://localhost:8000 http://fogg.ibizit.nl ws://fogg.ibizit.nl:35729 http://map.ibizit.nl",
       'style-src': "'self' 'unsafe-inline' https://www.google.com https://*.googleapis.com https://*.gstatic.com",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://*.googleapis.com https://maps.gstatic.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' ws://fogg.ibizit.nl:35729 http://fogg.ibizit.nl:35729  https://www.google.com https://*.googleapis.com https://maps.gstatic.com",
       'font-src': "*",
       'img-src': "*"
     },
@@ -23,6 +23,7 @@ module.exports = function(environment) {
 
     APP: {
       API_HOST: 'http://localhost:8000',
+      API_HOST: 'http://fogg.ibizit.nl',
       API_NAMESPACE: 'api',
       API_ADD_TRAILING_SLASHES: false
     }
