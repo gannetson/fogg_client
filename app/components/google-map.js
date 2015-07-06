@@ -7,8 +7,9 @@ export default Ember.Component.extend({
     featureStyle: function () {
         return {
             fillColor: this.get('color'),
-            strokeWeight: 1,
-            strokeColor: this.get('color')
+            strokeWeight: 0,
+            strokeColor: this.get('color'),
+            fillOpacity: 0.2
         }
     }.property(),
 
@@ -23,7 +24,7 @@ export default Ember.Component.extend({
             file = '/geojson/' + country.id,
             unmarked = true;
         map.data.forEach(function(mark){
-           if (mark.getProperty('iso_a2') == country.get('code2')) {
+           if (mark.getProperty('iso_a2') == country.get('id')) {
                unmarked = false;
            }
         });
@@ -36,7 +37,7 @@ export default Ember.Component.extend({
         var _this = this,
             map= this.get('map');
         map.data.forEach(function(mark){
-           if (mark.getProperty('iso_a2') == country.get('code2')) {
+           if (mark.getProperty('iso_a2') == country.get('id')) {
                map.data.remove(mark);
            }
         });

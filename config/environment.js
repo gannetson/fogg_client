@@ -23,7 +23,6 @@ module.exports = function(environment) {
 
     APP: {
       API_HOST: 'http://localhost:8000',
-      API_HOST: 'http://fogg.ibizit.nl',
       API_NAMESPACE: 'api',
       API_ADD_TRAILING_SLASHES: false
     }
