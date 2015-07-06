@@ -1,10 +1,10 @@
-Users
+Users {{model.length}}
 
 <ul>
   {{#each model as |user|}}
     <li>
       {{#link-to 'user' user}}
-        {{user.username}}
+        {{user.username}} [{{user.countries.length}}]
       {{/link-to}}
     </li>
   {{/each}}

@@ -4,6 +4,9 @@ h3 {
 
 ul {
     padding: 0;
+}
+
+ul.countries {
     height: 90%;
     -webkit-column-count: 6;
     -moz-column-count: 6;
@@ -12,7 +15,7 @@ ul {
     display: none;
 }
 
-#legend:hover ul {
+#legend:hover ul.countries {
     display: block;
 }
 

@@ -2,7 +2,7 @@
 
 <div id="legend">
     <h3>{{model.countries.length}} countries visited</h3>
-    <ul>
+    <ul class="countries">
       {{#each allCountries as |country|}}
           <li>
             {{#if (in-array country model.countries)}}

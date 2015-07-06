@@ -8,7 +8,7 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' https://www.google.com https://*.googleapis.com https://*.gstatic.com",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://*.googleapis.com https://maps.gstatic.com",
       'font-src': "*",
-      'img-src': "*",
+      'img-src': "*"
     },
     modulePrefix: 'fogg-client',
     environment: environment,
@@ -22,9 +22,9 @@ module.exports = function(environment) {
     },
 
     APP: {
-      API_HOST: '/',
+      API_HOST: 'http://localhost:8000',
       API_NAMESPACE: 'api',
-      API_ADD_TRAILING_SLASHES: true
+      API_ADD_TRAILING_SLASHES: false
     }
   };
 
@@ -49,8 +49,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST = 'http://fogg.ibizit.nl';
   }
-
   return ENV;
 };
