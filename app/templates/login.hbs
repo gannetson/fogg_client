@@ -1,11 +1,9 @@
-<div class="container">
-<div class="col-md-6 col-md-offset-3">
-  <h4>Login</h4>
-
+{{#if session.isAuthenticated}}
+    {{session}} | {{session.content.secure.access_token}} | {{session.user_id}}
+    <br />
+    <a {{ action 'logout' }}>Logout</a>
+{{else}}
   <button id="clear-completed" class="btn btn-primary btn-lg btn-block" {{action "loginFacebook"}}>
       Login with facebook
   </button>
-
-
-</div>
-</div>
+{{/if}}

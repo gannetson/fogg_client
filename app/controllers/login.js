@@ -4,6 +4,9 @@ import ENV from '../config/environment';
 /* global FB */
 export default Ember.Controller.extend({
     actions: {
+        logout: function() {
+            this.get('session').invalidate();
+        },
         loginFacebook: function () {
             var that = this;
             FB.login(function (response) {
