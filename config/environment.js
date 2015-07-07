@@ -6,7 +6,7 @@ module.exports = function(environment) {
       'default-src': "*",
       'connect-src': "'self' http://localhost:8000 http://fogg.ibizit.nl ws://fogg.ibizit.nl:35729 http://map.ibizit.nl",
       'style-src': "'self' 'unsafe-inline' https://www.google.com https://*.googleapis.com https://*.gstatic.com",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' ws://fogg.ibizit.nl:35729 http://fogg.ibizit.nl:35729  https://www.google.com https://*.googleapis.com https://maps.gstatic.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' ws://fogg.ibizit.nl:35729 https://connect.facebook.net http://connect.facebook.net http://fogg.ibizit.nl:35729  https://www.google.com https://*.googleapis.com https://maps.gstatic.com",
       'font-src': "*",
       'img-src': "*"
     },
@@ -19,6 +19,10 @@ module.exports = function(environment) {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       }
+    },
+    facebook: {
+      login_scope: 'email,user_photos,public_profile,user_friends',
+      app_id: '916307071761187'
     },
 
     APP: {
@@ -51,5 +55,13 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.APP.API_HOST = 'http://fogg.ibizit.nl';
   }
+
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: ENV.APP.API_HOST + "/auth/token"
+  };
+  ENV['simple-auth-convert-token'] = {
+    url: ENV.APP.API_HOST + "/auth/convert-token"
+  };
+
   return ENV;
 };
