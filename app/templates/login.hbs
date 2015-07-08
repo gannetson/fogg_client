@@ -1,5 +1,5 @@
 {{#if session.isAuthenticated}}
-    {{session}} | {{session.content.secure.access_token}} | {{session.user_id}}
+    {{session}} | {{session.content.secure.access_token}} | {{currentUser}}
     <br />
     <a {{ action 'logout' }}>Logout</a>
 {{else}}
