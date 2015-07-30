@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('country', {path: 'country/:country_id'});
 
   this.route('login');
+  this.route('my-map');
 });
 
 export default Router;

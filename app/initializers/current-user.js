@@ -1,10 +1,27 @@
 export function initialize(container, application) {
-    application.inject('route', 'user', 'service:current-user');
-    application.inject('controller', 'user', 'service:current-user');
-    application.inject('service:current-user', 'store', 'store:main');
+    //application.deferReadiness();
+    //
+    var session = container.lookup('session:current-user');
+
+    debugger;
+    if (session.access_token) {
+        $.ajaxSetup({
+            headers: { "Authorization": "Bearer " + session.access_token }
+        });
+    }
+    //
+    //container.lookup('store:main').find('user', 1).then(function(user) {
+    //    application.register('user:current', user, { instantiate: false, singleton: true });
+    //    application.inject('route', 'currentUser', 'user:current');
+    //    application.inject('controller', 'currentUser', 'user:current');
+    //    application.advanceReadiness();
+    //}, function() {
+    //    application.advanceReadiness();
+    //});
 }
 
 export default {
-    name: 'user-service',
+    name: 'current-user',
+    after: 'simple-auth',
     initialize: initialize
 };

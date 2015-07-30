@@ -1,5 +1,6 @@
+{{#link-to 'home'}}Home{{/link-to}}
 {{#if session.isAuthenticated}}
-    {{session}} | {{session.content.secure.access_token}} | {{currentUser}}
+    {{session}} | {{session.content.secure.access_token}} | {{session.user}}
     <br />
     <a {{ action 'logout' }}>Logout</a>
 {{else}}
